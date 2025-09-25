@@ -12,3 +12,4 @@ C:\Users\elror\Forsbergs\Introduction\E9Operators\obj\Debug\net8.0\refint\E9Oper
 C:\Users\elror\Forsbergs\Introduction\E9Operators\obj\Debug\net8.0\E9Operators.pdb
 C:\Users\elror\Forsbergs\Introduction\E9Operators\obj\Debug\net8.0\E9Operators.genruntimeconfig.cache
 C:\Users\elror\Forsbergs\Introduction\E9Operators\obj\Debug\net8.0\ref\E9Operators.dll
+C:\Users\elror\Forsbergs\Introduction\E9Operators\obj\Debug\net8.0\E9Operators.sourcelink.json
