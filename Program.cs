@@ -19,9 +19,8 @@ Then print how many days this is as a fraction in total
 
 Console.WriteLine("E9Operators!");
 Console.WriteLine("Give me a number in seconds:");
-string numbersStr = Console.ReadLine();
 
-if (int.TryParse(numbersStr, out int secondsTotal))
+if (int.TryParse(Console.ReadLine(), out int secondsTotal))
 {
     double secondsTotalFloat = (double)secondsTotal;
     int minutesTotal = secondsTotal / 60;
