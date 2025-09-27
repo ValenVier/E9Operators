@@ -18,24 +18,38 @@ Then print how many days this is as a fraction in total
  */
 
 Console.WriteLine("E9Operators!");
-Console.WriteLine("Give me a number in seconds:");
 
+askNumber:
+Console.WriteLine("Give me a number in seconds (0 to exit):");
 if (int.TryParse(Console.ReadLine(), out int secondsTotal))
 {
+    if (secondsTotal == 0)
+        goto endProgram;
+
     double secondsTotalFloat = (double)secondsTotal;
     int minutesTotal = secondsTotal / 60;
     int hoursTotal = minutesTotal / 60;
     int daysTotal = hoursTotal / 24;
 
-    Console.WriteLine($"Seconds: {secondsTotal % minutesTotal}");
-    Console.WriteLine($"Minutes: {minutesTotal % hoursTotal}");
-    Console.WriteLine($"Hours: {hoursTotal - (daysTotal * 24)}");
+    //When divided by zero (lower numbers), it gives an exception error. Solution:
+    secondsTotal = (minutesTotal == 0) ? secondsTotal : (secondsTotal % minutesTotal);
+    minutesTotal = (hoursTotal == 0) ? minutesTotal : (minutesTotal % hoursTotal);
+    hoursTotal = (daysTotal == 0) ? hoursTotal : (hoursTotal - (daysTotal * 24));
+
+
+    Console.WriteLine($"Seconds: {secondsTotal}");
+    Console.WriteLine($"Minutes: {minutesTotal}");
+    Console.WriteLine($"Hours: {hoursTotal}");
     Console.WriteLine($"Days: {daysTotal}");
-    Console.WriteLine(
-        $"{daysTotal}.{hoursTotal - (daysTotal * 24)}:{minutesTotal % hoursTotal}:{secondsTotal % minutesTotal}");
+    Console.WriteLine($"{daysTotal}.{hoursTotal}:{minutesTotal}:{secondsTotal}");
     Console.WriteLine($"In total that's: {secondsTotalFloat / (60 * 60 * 24)} Days");
+
+    goto askNumber;
 }
 else
 {
     Console.WriteLine("Write a number (int) please!");
 }
+
+endProgram:
+Console.WriteLine("Goodbye!");
